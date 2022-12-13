@@ -18,9 +18,23 @@
 </head>
 
 <body>
+	<header>
+		<label for="cars">Choose a car:</label>
+
+		<select onchange="document.getElementById('model-viewer').src = this.value" name="cars" id="cars">
+		<option onclick="document.getElementById('model-viewer').src = 'objekt_1/scene.gltf'" value="objekt_1/scene.gltf">Volvo</option>
+		<option onclick="document.getElementById('model-viewer').src = 'objekt_2/scene.gltf'" value="objekt_2/scene.gltf">Truck</option>
+		<option onclick="document.getElementById('model-viewer').src = 'objekt_3/scene.gltf'" value="objekt_3/scene.gltf">Wheels</option>
+		</select>
+
+		<form action="/upload" method="post" encType="multipart/form-data">
+			<input type="file" id="myFile" name="filename">
+			<input type="submit">
+		  </form>
+	</header>
 	<!-- 3D content for your site: -->
 
-    <model-viewer src="scene.gltf" alt="A 3D model of a car" shadow-intensity="1" camera-controls auto-rotate ar >
+    <model-viewer id="model-viewer" src="objekt_1/scene.gltf" shadow-intensity="1" camera-controls auto-rotate ar >
     </model-viewer>
 
 
@@ -34,6 +48,9 @@
 	<!-- Loads <model-viewer> for old browsers like IE11: -->
 	<script nomodule
       src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js">
+	</script>
+	<script>
+
 	</script>
 </body>
 

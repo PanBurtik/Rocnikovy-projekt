@@ -18,7 +18,9 @@
   },
   "homepage": "https://github.com/PanBurtik/Rocnikovy-projekt#readme",
   "dependencies": {
+    "express-fileupload": "^1.4.0",
     "express.js": "^1.0.0",
-    "nodemon": "^2.0.20"
+    "nodemon": "^2.0.20",
+    "unzipper": "^0.10.11"
   }
 }
