@@ -20,6 +20,8 @@ server.listen(port, hostname, () => {
   console.log(`Server running at http://${hostname}:${port}/`);
 });
 
+
+//Posílání a odzipování zip souboru do složky s cestou na řádku 29:
 app.post('/upload', async function(req, res) {
   console.log(req.files.filename.data);
   const directory = await unzipper.Open.buffer(req.files.filename.data);;
