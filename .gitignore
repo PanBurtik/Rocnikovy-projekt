@@ -1,1 +1,9 @@
 node_modules
+*.log 
+*.pot 
+*.pyc 
+pycache 
+db.sqlite3
+media
+venv/
+cech-tankova-databaze-master
