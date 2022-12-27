@@ -9,8 +9,11 @@ class Object(models.Model):
     name = models.CharField(max_length=50, verbose_name="Jméno:")
 
     object = models.CharField(max_length=100, verbose_name="Název objektu:")
+    
+    description = models.TextField(blank=True, null = True, verbose_name="Popis objektu:")
 
     photo = models.FileField(upload_to=object_path, blank=True, null=True, verbose_name="Fotka:")
+
 
     class Meta:
         ordering = ['name']

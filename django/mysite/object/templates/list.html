@@ -1,28 +1,38 @@
-{% extends 'base.html'%}
 
+{% extends 'base.html'%}
+<!--<div class="card">
+      <div class="card-body">
+        <h1 class="text-center">Vložení objektu</h1>
+        <form action="/object/objects">
+          <label for="fname">Jméno:</label>
+          <input type="text" id="fname" name="fname"><br><br>
+          <label for="fname">Název objektu:</label>
+          <input type="text" id="lname" name="lname"><br><br>
+          <label for="fname">Popis objektu:</label>
+          <input type="text" id="lname" name="lname"><br><br>
+          <label for="avatar">Vložte obrázek:</label>
+
+          <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg">
+          <input type="submit" value="Submit">
+        </form>
+      
+      </div>
+    </div>-->
 
 {% block content %}
-
-<div class="row">
-{% for object in objects %}
-
-
-<div class="col-sm-3">
-    <div class="card">
-      <div class="card-body">
-        <h4 class="card-title">{{ object.name }}</h4>
-        <p class="card-text">
-          <strong>{{ object.object }}</strong>
-        </p>
-        {% if object.photo %}<img class="card-img-top" src="{{ object.photo.url }}">
-        {% endif %}
-        <button></button>
+<div class="container">
+    <div class="contact-box">
+      <div class="left"></div>
+      <div class="right">
+        <h2>Přidání objektu</h2>
+        <form action="" method="POST">{% csrf_token %}
+          <input type="text" class="field" placeholder="Jméno" name="name">
+          <input type="text" class="field" placeholder="Název objektu" name="object">
+          <textarea placeholder="Popis objektu" class="field" name="description"></textarea>
+          <input placeholder="Fotka:" type="file" name="photo" accept="image/png, image/jpeg">
+          <button type="submit" class="btn">Přidat</button>
+        </form>
       </div>
     </div>
-  </div>
-  
-
-{% endfor %}
 </div>
-
 {% endblock %}
