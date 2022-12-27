@@ -4,6 +4,59 @@ const express = require('express');
 const unzipper = require('unzipper');
 const fileUpload = require('express-fileupload');
 const fs = require('fs');
+const MongoClient = require('mongodb').MongoClient;
+const uri = "mongodb://localhost:27017";
+
+
+const client = new MongoClient(uri, { useNewUrlParser: true });
+
+const dbName = "model"
+
+
+function sendFileToDB(name, file) {
+  // Use the client to connect to the database
+  client.connect(err => {
+    // Create a reference to the collection
+    const collection = client.db(dbName).collection(dbName);
+
+    // Create a new document to insert
+    const document = { name: name, data: file };
+
+    // Use the insertOne() method to index the document
+    collection.insertOne(document, function(err, result) {
+      console.log("Document indexed");
+      client.close();
+    });
+  });
+}
+
+function getFileByName(name) {
+  client.connect(err => {
+    // Create a reference to the collection
+    const collection = client.db(dbName).collection(dbName);
+
+    // Use the find() method to retrieve the document with the specified name
+    collection.find({ name: name }).toArray(function(err, docs) {
+      console.log(docs);
+      client.close();
+    });
+  });
+}
+
+function listAllFiles(name) {
+  client.connect(err => {
+    // Create a reference to the collection
+    const collection = client.db(dbName).collection(dbName);
+
+    // Use the find() method to retrieve the document with the specified name
+    collection.find({}).toArray(function(err, docs) {
+      docs.map(e => console.log(e.name));
+      client.close();
+    });
+  });
+}
+
+listAllFiles()
 
 const hostname = '127.0.0.1';
 const port = 3000;
@@ -25,6 +78,9 @@ server.listen(port, hostname, () => {
 app.post('/upload', async function(req, res) {
   console.log(req.files.filename.data);
   const directory = await unzipper.Open.buffer(req.files.filename.data);;
+
+  sendFileToDB("xddmodel", req.files.filename.data)
+
   await directory.extract({
     path: "object\\"+ req.files.filename.name
   }) // the uploaded file object

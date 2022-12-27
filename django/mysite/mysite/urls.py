@@ -22,6 +22,6 @@ from mysite import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('tank/', include('tank.urls')),
-    path('', RedirectView.as_view(url='tank/')),
+    path('object/', include('object.urls')),
+    path('', RedirectView.as_view(url='object/')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

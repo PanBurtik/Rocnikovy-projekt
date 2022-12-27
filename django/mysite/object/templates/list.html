@@ -1,0 +1,28 @@
+{% extends 'base.html'%}
+
+
+{% block content %}
+
+<div class="row">
+{% for object in objects %}
+
+
+<div class="col-sm-3">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">{{ object.name }}</h4>
+        <p class="card-text">
+          <strong>{{ object.object }}</strong>
+        </p>
+        {% if object.photo %}<img class="card-img-top" src="{{ object.photo.url }}">
+        {% endif %}
+        <button></button>
+      </div>
+    </div>
+  </div>
+  
+
+{% endfor %}
+</div>
+
+{% endblock %}
