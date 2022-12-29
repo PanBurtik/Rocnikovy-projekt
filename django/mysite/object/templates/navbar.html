@@ -13,11 +13,11 @@
             </ul>
             <ul class="navbar-nav ms-4">
                 {% if user.is_authenticated %}
-                <li class=" nav-item text-white">{{ user.username }}</li>
-                <li><a href="{% url 'logout' %}">Log out</a></li>
+                <li class="text-white"><u> {{ user.username  }}</u> </li>
+                <li style="margin-left: 10px;"><a href="{% url 'logout' %}"> Log out</a></li>
                 {% else %}
-                <li class="text-white">you are not logged in</li>
-                <a href="{% url 'login' %}">Log in</a>
+                <li class="text-white"><u>Nepřihlášen</u></li>
+                <li style="margin-left: 10px;"><a href="{% url 'login' %}">Log in</a></li>
                 {% endif %}
             </ul>
         </div>

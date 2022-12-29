@@ -7,17 +7,8 @@
     <title>Document</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/form.css' %}">
-
 </head>
 <body>
-   <!-- <section>
-        <h2>Login</h2>
-         <form method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit">Log in</button>
-        </form>
-    </section>-->
     <section>
         <span></span>
         <span></span>
@@ -318,20 +309,20 @@
 
         <div class="signin">
             <div class="content">
-                <h2>Log in</h2>
+                <h2>Sign up</h2>
                 <div class="form" method="post">
                     <form class="inputBx" style="color: white;" method="post">
                             {% csrf_token %} 
-                            {{ form.as_p }}
+                            {{ form.as_table }}
                            
                         
                         <div style="margin-top: 20px;" class="links">
-                            <li>Don't have an Account yet?</li>
-                            <li><a href="/object/register">Sign up</a></li>
+                            <li>Already have an account?</li>
+                            <li><a href="/accounts/login">Log in</a></li>
                         </div>
 
                         <div style="margin-top: 5px;" class="inputBx">
-                            <input type="submit" value="Login">
+                            <input type="submit" value="Register">
                         </div>
                     </form>
                     
@@ -339,24 +330,7 @@
             </div>
         </div>
     </section>
-    
+
     
 </body>
 </html>
-<!--
-    <div class="inputBx">
-                        <input type="" required>
-                        <i>Username</i>
-                    </div>
-                    <div class="inputBx">
-                        <input type="password" required>
-                        <i>Password</i>
-                    </div>
-                    <div class="links">
-                        <a href="#">Forgot Password</a>
-                        <a href="#">Sign up</a>
-                    </div>
-                    <div class="inputBx">
-                        <input type="submit" value="Login">
-                    </div>
--->

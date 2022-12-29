@@ -23,8 +23,10 @@ from mysite import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('accounts/', include("django.contrib.auth.urls")),
-    path('', TemplateView.as_view(template_name='index.html'), name='home'),
     path('object/', include('object.urls')),
     path('', RedirectView.as_view(url='object/')),
+    path('accounts/', include("django.contrib.auth.urls")),
+    path('', TemplateView.as_view(template_name='index.html'), name='home'),
+    path('', RedirectView.as_view(url='object/')),
+    
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

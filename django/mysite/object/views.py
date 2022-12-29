@@ -1,7 +1,8 @@
 from django.views.generic import ListView
 from multiprocessing import context
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from object.models import Object
+from django.contrib.auth.forms import UserCreationForm
 
 # Create your views here.
 def index(request): 
@@ -38,3 +39,18 @@ class ObjectListView(ListView):
 
     context_object_name = 'objects'
     template_name = 'list.html'
+
+
+def register(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('login')
+    else:
+        form = UserCreationForm()
+    return render(request, 'register.html', {'form': form})
+
+def login(request):
+
+    return render(request, 'login.html')
