@@ -34,6 +34,9 @@ def index(request):
 def home(request):
     return render(request, 'index.html')
 
+def model(request):
+    return render(request, 'model.html')
+
 class ObjectListView(ListView):
     model = Object
 

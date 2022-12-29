@@ -6,5 +6,6 @@ urlpatterns = [
     path('objects/', views.ObjectListView.as_view(), name="objects"),
     path('register/', views.register, name='register'),
     path('login/', views.login, name='login'),
+    path('model/', views.model, name='model'),
 
 ]
