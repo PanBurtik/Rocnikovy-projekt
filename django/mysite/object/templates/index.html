@@ -46,21 +46,6 @@
 
 <!-- form enctype="multipart/form-data"-->
 {% endfor %}
-<div class="container">
-    <div class="contact-box">
-      <div class="left"></div>
-      <div class="right">
-        <h2>Přidání objektu</h2>
-        <form  action="" method="POST">{% csrf_token %}
-          <input type="text" class="field" placeholder="Jméno:" name="name">
-          <input type="text" class="field" placeholder="Název objektu:" name="object">
-          <textarea placeholder="Popis objektu:" class="field" name="description"></textarea>
-          <input placeholder="Fotka:" type="file" name="photo" accept="image/png, image/jpeg">
-          <button type="submit" class="btn">Přidat</button>
-        </form>
-      </div>
-    </div>
-</div>
-</div>
+
 
 {% endblock %}

@@ -30,6 +30,8 @@ def index(request):
     return render(request, 'index.html', context = context)
 
     
+def home(request):
+    return render(request, 'index.html')
 
 class ObjectListView(ListView):
     model = Object

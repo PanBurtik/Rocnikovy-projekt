@@ -9,11 +9,21 @@
                 <li class="nav-item"><a class="nav-link active" aria-current="page" href="/object">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="/object/objects">Form</a></li>
                 <li class="nav-item"><a class="nav-link" href="/admin">Admin</a></li>
+
+            </ul>
+            <ul class="navbar-nav ms-4">
+                {% if user.is_authenticated %}
+                <li class=" nav-item text-white">{{ user.username }}</li>
+                <li><a href="{% url 'logout' %}">Log out</a></li>
+                {% else %}
+                <li class="text-white">you are not logged in</li>
+                <a href="{% url 'login' %}">Log in</a>
+                {% endif %}
             </ul>
         </div>
     </div>
 </nav>
-<div class="row text-white bg-secondary p-3">
+<div class="text-white bg-secondary p-3">
     <h2 class="text-center">Seznam objektů</h2>
 </div>
 
