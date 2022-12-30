@@ -14,6 +14,7 @@ class Object(models.Model):
 
     photo = models.FileField(upload_to=object_path, blank=True, null=True, verbose_name="Fotka:")
 
+    
 
     class Meta:
         ordering = ['name']

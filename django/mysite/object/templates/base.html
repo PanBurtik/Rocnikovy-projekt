@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{% load static %}<!DOCTYPE html>
 <html lang="cs">
 <head>
     <!-- Blok s titulkem stránky -->
@@ -13,7 +13,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
     <!-- Načtení adresy statických souborů webu - musí být před prvním použití identifikátoru static -->
-    {% load static %}
+    
     <!-- Blok určený k připojování dalších externích stylů -->
 
     
@@ -28,9 +28,10 @@
     <!-- Připravený blok pro vložení/připojení dalších skriptů podle potřeby jednotlivých stránek -->
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 	<!-- Podpora <model-viewer> pro starší prohlížeče: -->
-	<script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
-    {% endblock %}
+	<script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>¨
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    {% endblock %}
+    
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
     <!-- Připojení vlastního CSS souboru umístěného ve struktuře složky static -->
 
@@ -55,10 +56,12 @@
     
     
 </head>
-<body>
+<body><div>
     {% block navbar %}
         {% include "navbar.html" %}
     {% endblock %}
+</div>
+    
     <!-- Navigační lišta -->
     <!-- Záhlaví stránky -->
     <!-- Hlavní blok stránky -->

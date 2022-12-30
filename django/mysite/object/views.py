@@ -1,47 +1,48 @@
-from django.views.generic import ListView
 from multiprocessing import context
 from django.shortcuts import render, redirect
 from object.models import Object
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib import messages
 
 # Create your views here.
 def index(request): 
-    
-    if request.method == 'POST':
-        name = request.POST['name']
-        object = request.POST['object']
-        description = request.POST['description']
-        photo = request.POST['photo']
-
-
-        new_object = Object(name = name, object = object, description = description, photo = photo)
-        new_object.save()
-
-
 
     num_objects = Object.objects.all().count
 
-    objects = Object.objects.order_by('-name')
+    objects = Object.objects.order_by('name')
 
     context ={
         'num_objects': num_objects,
         'objects': objects,
     }
-
+    
     return render(request, 'index.html', context = context)
 
     
+
 def home(request):
     return render(request, 'index.html')
+
 
 def model(request):
     return render(request, 'model.html')
 
-class ObjectListView(ListView):
-    model = Object
 
-    context_object_name = 'objects'
-    template_name = 'list.html'
+def addObject(request):
+    if request.method == "POST":
+        prod = Object()
+        prod.name = request.POST.get('name')
+        prod.object = request.POST.get('object')
+        prod.description = request.POST.get('description')
+
+        if len(request.FILES) != 0:
+            prod.photo = request.FILES['photo']
+
+        prod.save()
+        messages.success(request, 'Objekt byl přidán do databáze')
+        return redirect('/')
+
+    return render(request, 'addObj.html')
 
 
 def register(request):
@@ -53,6 +54,7 @@ def register(request):
     else:
         form = UserCreationForm()
     return render(request, 'register.html', {'form': form})
+
 
 def login(request):
 
