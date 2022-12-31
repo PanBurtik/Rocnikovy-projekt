@@ -19,7 +19,7 @@ from django.urls import path, include
 from django.views.generic import RedirectView
 from django.views.generic.base import TemplateView
 
-from mysite import settings
+from quickstart import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
