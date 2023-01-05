@@ -1,0 +1,10 @@
+<h1>Zapomenuté heslo</h1>
+
+<p>Vložte email</p>
+<form class="inputBx" method="post">
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <button type="submit">Send</button>
+</form>

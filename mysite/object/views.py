@@ -29,17 +29,21 @@ def model(request):
 
 def addObject(request):
     if request.method == "POST":
-        prod = Object()
-        prod.name = request.POST.get('name')
-        prod.object = request.POST.get('object')
-        prod.description = request.POST.get('description')
+            prod = Object()
+            prod.name = request.POST.get('name')
+            prod.object = request.POST.get('object')
+            prod.description = request.POST.get('description')
 
-        if len(request.FILES) != 0:
-            prod.photo = request.FILES['photo']
+            if len(request.FILES) != 0:
+                prod.photo = request.FILES['photo']
 
-        prod.save()
-        messages.success(request, 'Objekt byl přidán do databáze')
-        return redirect('/')
+            if len(request.FILES) != 0:
+                prod.zip_file = request.FILES['zip_file']
+            prod.save()
+            messages.success(request, 'Objekt byl přidán do databáze')
+            return redirect('/')
+
+    
 
     return render(request, 'addObj.html')
 
@@ -58,3 +62,6 @@ def register(request):
 def login(request):
 
     return render(request, 'login.html')
+
+def reset(request):
+    return render(request, 'reset.html')
