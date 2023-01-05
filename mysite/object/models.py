@@ -2,7 +2,10 @@ from django.db import models
 
 # Create your models here.
 def object_path(instance, filename):
-    return "object/" + str(instance.name) + "/fotka/" + filename
+    return str(instance.name) + "/fotka/" + filename
+
+def zip_path(instance, filename):
+    return str(instance.name) + "/zip/" + filename
 
 
 class Object(models.Model):
@@ -13,6 +16,8 @@ class Object(models.Model):
     description = models.TextField(blank=True, null = True, verbose_name="Popis objektu:")
 
     photo = models.FileField(upload_to=object_path, blank=True, null=True, verbose_name="Fotka:")
+
+    zip_file = models.FileField(upload_to=zip_path, null = True, verbose_name="Zip soubor:")
 
     
 
