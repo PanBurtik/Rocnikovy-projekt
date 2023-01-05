@@ -12,24 +12,24 @@
                 <form action="" method="post" enctype="multipart/form-data">
                   {% csrf_token %}
                   <div class="mb-4">
-                    <label for="" class="form-label fw-bold">Name</label>
+                    <label for="" class="form-label fw-bold">Jméno:</label>
                     <input type="text" required name="name" class="form-control">
                   </div>
                   <div class="mb-4">
-                    <label for="" class="form-label fw-bold">Object</label>
+                    <label for="" class="form-label fw-bold">Název objektu:</label>
                     <input type="text" required name="object" class="form-control">
                   </div>
                   <div class="mb-4">
-                    <label for="" class="form-label fw-bold">Description</label>
+                    <label for="" class="form-label fw-bold">Popis:</label>
                     <input type="text"  name="description" class="form-control">
                   </div>
                   <div class="mb-4">
-                    <label for="" class="form-label fw-bold">Image</label>
+                    <label for="" class="form-label fw-bold">Obrázek:</label>
                     <input type="file"  name="photo" class="form-control">
                   </div>
                   <div class="mb-5">
-                    <label for="" class="form-label fw-bold">ZIP</label>
-                    <input type="file"class="form-control">
+                    <label for="" class="form-label fw-bold">ZIP:</label>
+                    <input type="file" name="zip_file" class="form-control">
                   </div>
 
                   <button type="submit" class="btn btn-primary">Odeslat</button>

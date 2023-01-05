@@ -7,8 +7,12 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item"><a class="nav-link active" aria-current="page" href="/object">Home</a></li>
+                {% if user.is_authenticated %}
                 <li class="nav-item"><a class="nav-link" href="/object/add-object">Add object</a></li>
+                {% endif %}
+                {% if user.is_authenticated and user.is_superuser %}
                 <li class="nav-item"><a class="nav-link" href="/admin">Admin</a></li>
+                {% endif %}
 
             </ul>
             <ul class="navbar-nav ms-4">
