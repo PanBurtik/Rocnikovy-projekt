@@ -17,7 +17,7 @@
       <h5 class="card-title" style="border-bottom: 1px solid black;"><b>{{ object.name }}</b></h5>
       <h6 class="card-title" style="border-bottom: 1px solid black;">{{ object.object }}</h6>
       {% if object.description %}<p class="card-text" style="border-bottom: 1px solid black;">{{ object.description|truncatewords:15 }}</p>{% endif %}
-      <a class="btn btn-primary" onclick="openPopup()">Náhled modelu</a>
+      <a class="btn btn-primary" href="/object/model/{{ object.object }}">Náhled modelu</a>
     </div>
   </div>
   

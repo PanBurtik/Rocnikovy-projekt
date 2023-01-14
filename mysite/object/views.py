@@ -23,8 +23,8 @@ def home(request):
     return render(request, 'index.html')
 
 
-def model(request):
-    return render(request, 'model.html')
+def model(request, model_name):
+    return render(request, 'model.html', {"object": model_name})
 
 
 def addObject(request):
