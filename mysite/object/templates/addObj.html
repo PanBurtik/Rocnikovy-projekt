@@ -25,11 +25,19 @@
                   </div>
                   <div class="mb-4">
                     <label for="" class="form-label fw-bold">Obrázek:</label>
-                    <input type="file"  name="photo" class="form-control">
+                    <input type="file" required  name="photo" class="form-control">
                   </div>
-                  <div class="mb-5">
-                    <label for="" class="form-label fw-bold">ZIP:</label>
-                    <input type="file" name="zip_file" class="form-control">
+                  <div class="mb-4">
+                    <label for="" class="form-label fw-bold">BIN soubor:</label>
+                    <input type="file" required name="scene_bin" class="form-control">
+                  </div>
+                  <div class="mb-4">
+                    <label for="" class="form-label fw-bold">GLTF soubor:</label>
+                    <input type="file" required name="scene_gltf" class="form-control">
+                  </div>
+                  <div class="mb-4">
+                    <label for="" class="form-label fw-bold">Textury:</label>
+                    <input type="file" multiple name="textures" class="form-control">
                   </div>
 
                   <button type="submit" class="btn btn-primary">Odeslat</button>

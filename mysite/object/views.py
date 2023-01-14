@@ -1,6 +1,6 @@
 from multiprocessing import context
 from django.shortcuts import render, redirect
-from object.models import Object
+from object.models import Object, Textures
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 
@@ -38,8 +38,17 @@ def addObject(request):
                 prod.photo = request.FILES['photo']
 
             if len(request.FILES) != 0:
-                prod.zip_file = request.FILES['zip_file']
+                prod.scene_bin = request.FILES['scene_bin']
+            if len(request.FILES) != 0:
+                prod.scene_gltf = request.FILES['scene_gltf']
+
             prod.save()
+            def save_texture(img):
+                Textures.objects.create(textures = img, object_id = prod)
+                print(img)
+            f = [save_texture(x) for x in request.FILES.getlist('textures')]
+
+            
             messages.success(request, 'Objekt byl přidán do databáze')
             return redirect('/')
 
