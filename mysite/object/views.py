@@ -68,9 +68,5 @@ def register(request):
     return render(request, 'register.html', {'form': form})
 
 
-def login(request):
-
-    return render(request, 'login.html')
-
 def reset(request):
     return render(request, 'reset.html')
