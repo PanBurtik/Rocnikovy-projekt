@@ -13,11 +13,17 @@
 {% for object in objects %}
 
   <div class="card" style="width: 18rem; margin: 0.6%;">
-    {% if object.photo %}<img style="height: 200px; width: 275px;" class="card-img-top img-fluid" src="{{ object.photo.url }}" alt="Card image cap">{% endif %}
+    {% if object.photo %}
+      <img style="height: 200px; width: 275px;" class="card-img-top img-fluid" src="{{ object.photo.url }}" alt="Card image cap">
+    {% endif %}
     <div class="card-body">
       <h5 class="card-title" style="border-bottom: 1px solid black;"><b>{{ object.name }}</b></h5>
       <h6 class="card-title" style="border-bottom: 1px solid black;">{{ object.object }}</h6>
-      {% if object.description %}<p class="card-text" style="border-bottom: 1px solid black;">{{ object.description|truncatewords:15 }}</p>{% endif %}
+      {% if object.description %}
+        <p class="card-text" style="border-bottom: 1px solid black;">
+        {{ object.description|truncatewords:15 }}
+        </p>
+      {% endif %}
       <a class="btn btn-primary" href="/object/model/{{ object.object }}">Náhled modelu</a>
     </div>
   </div>
